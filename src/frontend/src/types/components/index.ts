@@ -30,6 +30,8 @@ export type InputComponentType = {
   setSelectedOption?: (value: string) => void;
   selectedOptions?: string[];
   setSelectedOptions?: (value: string[]) => void;
+  objectOptions?: Array<{ name: string; id: string }>;
+  isObjectOption?: boolean;
 };
 export type ToggleComponentType = {
   enabled: boolean;
@@ -220,6 +222,7 @@ export type AccordionComponentType = {
   keyValue?: string;
   openDisc?: boolean;
   sideBar?: boolean;
+  options?: { title: string; icon: string }[];
 };
 export type Side = "top" | "right" | "bottom" | "left";
 
@@ -400,6 +403,7 @@ export type StoreApiKeyType = {
 export type groupedObjType = {
   family: string;
   type: string;
+  display_name?: string;
 };
 
 export type nodeGroupedObjType = {
@@ -511,7 +515,7 @@ export type nodeToolbarPropsType = {
   updateNodeCode?: (
     newNodeClass: APIClassType,
     code: string,
-    name: string,
+    name: string
   ) => void;
   setShowState: (show: boolean | SetStateAction<boolean>) => void;
   isOutdated?: boolean;
@@ -561,7 +565,7 @@ export type chatMessagePropsType = {
   updateChat: (
     chat: ChatMessageType,
     message: string,
-    stream_url?: string,
+    stream_url?: string
   ) => void;
 };
 
@@ -653,16 +657,17 @@ export type codeTabsPropsType = {
       value: string,
       node: NodeType,
       template: TemplateVariableType,
-      tweak: tweakType,
+      tweak: tweakType
     ) => string;
     buildTweakObject?: (
       tw: string,
       changes: string | string[] | boolean | number | Object[] | Object,
-      template: TemplateVariableType,
+      template: TemplateVariableType
     ) => Promise<string | void>;
   };
   activeTweaks?: boolean;
   setActiveTweaks?: (value: boolean) => void;
+  allowExport?: boolean;
 };
 
 export type crashComponentPropsType = {
